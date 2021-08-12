@@ -4,13 +4,25 @@ import java.util.List;
 
 public class SecondLargestInArray {
     public static void main(String args []){
-        int []arr ={1,2,3,4,5,6,7,8,9,10};
+        int []arr ={18,2,23,12,90,17,5,55,6};
+        int temp;
+        int second = 0;
 
-        List<Integer> list = new ArrayList<>();
-        for(int i=0; i<arr.length;i++){
-            list.add(arr[i]);
+        for (int i=0; i< arr.length; i++) {
+            int counter=0;
+            temp = arr[i];
+            for(int j=0; j< arr.length; j++){
+                if((arr[j]>=temp)){
+                   counter++;
+                 }
+                if(counter>2){
+                  break;
+                }
+            }
+            if(counter==2){
+                second=temp;
+            }
         }
-        Collections.sort(list);
-        System.out.println("2nd Largest element is "+list.get(list.size()-2));
+        System.out.print("Second largest is "+second);
     }
 }
